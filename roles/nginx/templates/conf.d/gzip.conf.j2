@@ -1,0 +1,19 @@
+## Compression.
+gzip                          {{ ngx_http_gzip | default("on") }};
+gzip_static                   {{ ngx_http_gzip_static | default("on") }};
+gzip_buffers                  16 8k;
+gzip_comp_level               {{ ngx_http_gzip_compression | default(2) }};
+gzip_http_version             {{ ngx_http_gzip_http_version | default("1.1") }};
+gzip_min_length               {{ ngx_http_gzip_min_length | default(10) }};
+gzip_types
+{% for key, value in ngx_http_mime_types.iteritems() if value.gzip | default(false) %}
+                              {{ value.mime | mandatory }} # {{ value.extensions }}
+{% endfor %};
+
+gzip_vary                     {{ ngx_http_gzip_vary | default("on") }};
+# Compression for all requests.
+gzip_proxied                  {{ ngx_http_gzip_proxied | default("any") }};
+
+## No need for regexps. See
+## http://wiki.nginx.org/NginxHttpGzipModule#gzip_disable
+gzip_disable                  msie6;

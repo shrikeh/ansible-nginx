@@ -1,0 +1,11 @@
+error_log   {{ ngx_http_error_log | mandatory }} debug;
+
+log_format  {{ ngx_http_access_log_format | default("main") }}
+            '$remote_addr - $remote_user [$time_local] "$request" '
+            '$status $body_bytes_sent "$http_referer" '
+            '"$http_user_agent" "$http_x_forwarded_for"';
+
+{% if ngx_http_access_log is defined %}
+access_log                    {{ ngx_http_access_log_path | default("logs/access.log") }}
+                              {{ ngx_http_access_log_format | default("main") }};
+{% endif %}

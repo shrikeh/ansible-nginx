@@ -1,0 +1,5 @@
+- hosts: local
+  roles:
+    - nginx
+    - nginx-proxy
+    - nginx-x-forwarded-for

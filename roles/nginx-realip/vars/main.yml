@@ -1,0 +1,3 @@
+---
+# nginx-realip vars
+ngx_http_realip_conf:              "{{ ngx_http_confd_dir }}/real-ip.conf"

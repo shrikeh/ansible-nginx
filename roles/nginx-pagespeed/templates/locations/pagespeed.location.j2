@@ -1,0 +1,17 @@
+  pagespeed on;
+
+  pagespeed ModifyCachingHeaders {{ ngx_pagespeed_modify_caching_headers | default("off") }};
+  pagespeed XHeaderValue "{{ ngx_pagespeed_xheader | default ('Powered By ngx_pagespeed') }}";
+
+  # Ensure requests for pagespeed optimized resources go to the pagespeed handler
+  # and no extraneous headers get set.
+  location ~ "\.pagespeed\.([a-z]\.)?[a-z]{2}\.[^.]{10}\.[^.]+" {
+    add_header "" "";
+  }
+  location ~ "^/pagespeed_static/" {
+
+  }
+
+  location ~ "^/ngx_pagespeed_beacon$" {
+
+  }

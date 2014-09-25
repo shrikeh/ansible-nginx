@@ -1,0 +1,7 @@
+## Use sendfile() syscall to speed up I/O operations and speed up
+## static file serving.
+sendfile                      {{ ngx_http_sendfile | default("on") }};
+## TCP options.
+tcp_nodelay                   {{ ngx_http_tcp_nodelay | default("on") }};
+## Optimization of socket handling when using sendfile.
+tcp_nopush                    {{ ngx_http_tcp_nopush | default("on") }};

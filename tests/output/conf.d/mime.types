@@ -1,0 +1,44 @@
+types {
+  text/markdown md; # markdown
+  text/plain txt; # text
+  application/msword doc; # msword
+  image/jpeg jpeg jpg; # jpeg
+  application/cocoa cco; # cocoa
+  application/postscript ps eps ai; # postscript
+  image/webp webp; # webp
+  application/rtf rtf; # rtf
+  image/jng jng; # jng
+  image/vnd.wap.wbmp wbmp; # wbmp
+  application/x-7z-compressed 7z; # 7z
+  text/xml xml; # xml
+  application/vnd.google-earth.kml+xml kml; # google-earth-kml
+  application/java-archive jar war ear; # java
+  application/mac-binhex40 hqx; # binhex40
+  application/vnd.ms-excel xls xlsx xlt xltx xltm xlsm; # excel
+  image/gif gif; # gif
+  application/json json; # json
+  text/html html htm shtml; # html
+  text/x-component htc; # x-component
+  application/vnd.ms-fontobject eot; # ms-fontobject
+  image/tiff tif tiff; # tiff
+  application/rss+xml rss; # rss
+  text/css css; # css
+  application/x-java-archive-diff jardiff; # jar-diff
+  application/x-java-jnlp-file jnlp; # jnlp
+  application/vnd.ms-powerpoint ppt; # ms-powerpoint
+  application/vnd.apple.mpegurl m3u8; # m3u8
+  text/vnd.sun.j2me.app-descriptor jad; # sun-j2me
+  application/font-woff woff; # woff
+  application/javascript js; # javascript
+  image/bmp bm bmp; # bmp
+  application/atom+xml atom; # atom
+  application/pdf pdf; # pdf
+  image/png png; # png
+  image/icon ico; # icon
+  text/mathml mml; # mathml
+  image/svg+xml svg svgz; # svg
+  application/vnd.google-earth.kmz kmz; # google-earth-kmz
+  text/vnd.wap.wml wml; # wml
+  application/vnd.wap.wmlc wmlc; # wmlc
+}
+default_type                  application/octet-stream;

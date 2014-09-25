@@ -1,0 +1,142 @@
+---
+ngx_http_mime_types:
+  html:
+    mime:           "text/html"
+    extensions:     "html htm shtml"
+    gzip:           false
+  css:
+    mime:           "text/css"
+    extensions:     "css"
+    gzip:           true
+  xml:
+    mime:           "text/xml"
+    extensions:     "xml"
+    gzip:           true
+  gif:
+    mime:           "image/gif"
+    extensions:     "gif"
+  jpeg:
+    mime:           "image/jpeg"
+    extensions:     "jpeg jpg"
+  javascript:
+    mime:           "application/javascript"
+    extensions:     "js"
+    gzip:           true
+  atom:
+    mime:           "application/atom+xml"
+    extensions:     "atom"
+    gzip:           true
+  rss:
+    mime:           "application/rss+xml"
+    extensions:     "rss"
+    gzip:           true
+  mathml:
+    mime:           "text/mathml"
+    extensions:     "mml"
+  text:
+    mime:           "text/plain"
+    extensions:     "txt"
+    gzip:           true
+  sun-j2me:
+    mime:           "text/vnd.sun.j2me.app-descriptor"
+    extensions:     "jad"
+  wml:
+    mime:           "text/vnd.wap.wml"
+    extensions:     "wml"
+  x-component:
+    mime:           "text/x-component"
+    extensions:     "htc"
+  png:
+    mime:           "image/png"
+    extensions:     "png"
+  tiff:
+    mime:           "image/tiff"
+    extensions:     "tif tiff"
+  wbmp:
+    mime:           "image/vnd.wap.wbmp"
+    extensions:     "wbmp"
+  icon:
+    mime:           "image/icon"
+    extensions:     "ico"
+  jng:
+    mime:           "image/jng"
+    extensions:     "jng"
+  bmp:
+    mime:           "image/bmp"
+    extensions:     "bm bmp"
+  svg:
+    mime:           "image/svg+xml"
+    extensions:     "svg svgz"
+    gzip:           true
+  webp:
+    mime:           "image/webp"
+    extensions:     "webp"
+  woff:
+    mime:           "application/font-woff"
+    extensions:     "woff"
+  java:
+    mime:           "application/java-archive"
+    extensions:     "jar war ear"
+  json:
+    mime:           "application/json"
+    extensions:     "json"
+    gzip:           true
+  binhex40:
+    mime:           "application/mac-binhex40"
+    extensions:     "hqx"
+  markdown:
+    mime:           "text/markdown"
+    extensions:     "md"
+    gzip:           true
+  msword:
+    mime:           "application/msword"
+    extensions:     "doc"
+    gzip:           true
+  pdf:
+    mime:           "application/pdf"
+    extensions:     "pdf"
+  postscript:
+    mime:           "application/postscript"
+    extensions:     "ps eps ai"
+  rtf:
+    mime:           "application/rtf"
+    extensions:     "rtf"
+    gzip:           true
+  m3u8:
+    mime:           "application/vnd.apple.mpegurl"
+    extensions:     "m3u8"
+  excel:
+    mime:           "application/vnd.ms-excel"
+    extensions:     "xls xlsx xlt xltx xltm xlsm"
+    gzip:           true
+  ms-fontobject:
+    mime:           "application/vnd.ms-fontobject"
+    extensions:     "eot"
+    gzip:           true
+  ms-powerpoint:
+    mime:           "application/vnd.ms-powerpoint"
+    extensions:     "ppt"
+    gzip:           true
+  wmlc:
+    mime:           "application/vnd.wap.wmlc"
+    extensions:     "wmlc"
+  google-earth-kml:
+    mime:           "application/vnd.google-earth.kml+xml"
+    extensions:     "kml"
+    gzip:           true
+  google-earth-kmz:
+    mime:           "application/vnd.google-earth.kmz"
+    extensions:     "kmz"
+  7z:
+    mime:           "application/x-7z-compressed"
+    extensions:     "7z"
+  cocoa:
+    mime:           "application/cocoa"
+    extensions:     "cco"
+    gzip:           true
+  jar-diff:
+    mime:           "application/x-java-archive-diff"
+    extensions:     "jardiff"
+  jnlp:
+    mime:           "application/x-java-jnlp-file"
+    extensions:     "jnlp"

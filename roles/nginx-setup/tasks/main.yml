@@ -1,0 +1,42 @@
+---
+- name:         Create the nginx group
+  group:        name="{{ ngx_group | default('www-data') }}"
+                state=present
+                system=yes
+  sudo:         yes
+  when:         ansible_os_family != 'Darwin'
+
+- name:         Create the nginx user
+  user:         name="{{ ngx_user | default('nginx') }}"
+                group="{{ ngx_group | default('www-data') }}"
+                home="{{ ngx_base_dir | mandatory }}"
+                state=present
+                system=yes
+  sudo:         yes
+  when:         ansible_os_family != 'Darwin'
+
+- name:         Create the directories we need
+  file:         state=directory
+                path="{{ item }}"
+                owner="{{ ngx_user | default('nginx') }}"
+                group="{{ ngx_group | default('www-data') }}"
+                mode="{{ ngx_config_dir_mode | default(0755) }}"
+  sudo:         yes
+  when:         ansible_os_family != 'Darwin'
+  with_items:
+    - "{{ ngx_base_dir }}"
+    - "{{ ngx_log_dir }}"
+    - "{{ ngx_http_confd_dir }}"
+    - "{{ ngx_http_maps_dir }}"
+    - "{{ ngx_http_upstreams_dir }}"
+
+- name:         Create the directories we need on Mac
+  command:      "mkdir -m 0755 -p {{ item }}"
+  remote_user:  "{{ ngx_user }}"
+  when:         ansible_os_family == 'Darwin'
+  with_items:
+    - "{{ ngx_base_dir }}"
+    - "{{ ngx_log_dir }}"
+    - "{{ ngx_http_confd_dir }}"
+    - "{{ ngx_http_maps_dir }}"
+    - "{{ ngx_http_upstreams_dir }}"

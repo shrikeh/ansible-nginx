@@ -1,0 +1,9 @@
+upstream {{ item.key }} {
+{% for server in item.value.servers %}
+  server    {{ server.ip }}:{{ server.port }};
+{% endfor %}
+{% if item.value.load_balancing | default('least_conn') %}
+  {{ item.value.load_balancing }};
+{% endif %}
+  keepalive {{ item.value.keepalive | default(5) }};
+}

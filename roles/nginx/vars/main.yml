@@ -1,0 +1,28 @@
+---
+
+ngx_conf:                     "{{ ngx_base_dir }}/nginx.conf"
+ngx_http_conf:                "{{ ngx_base_dir }}/http.conf"
+
+ngx_config_file_mode:         "0444"
+ngx_config_dir_mode:          "0755"
+ngx_user:                     shrikeh
+ngx_group:                    staff
+
+
+ngx_pid:                        /var/run/nginx.pid
+ngx_worker_rlimit_nofile:       8192
+ngx_worker_connections:         4096
+ngx_multi_accept:               "on"
+
+ngx_error_log:                  "{{ ngx_log_dir }}/error.log"
+ngx_http_error_log:             "{{ ngx_log_dir }}/http-error.log"
+
+ngx_http_mime_types_conf:       "{{ ngx_http_confd_dir }}/mime.types"
+ngx_http_gzip_conf_conf:        "{{ ngx_http_confd_dir }}/gzip.conf"
+ngx_http_sendfile_conf:         "{{ ngx_http_confd_dir }}/sendfile.conf"
+ngx_http_open_file_cache_conf:  "{{ ngx_http_confd_dir }}/open_file_cache.conf"
+ngx_http_buffers_conf:          "{{ ngx_http_confd_dir }}/buffers.conf"
+ngx_http_log_conf:              "{{ ngx_http_confd_dir }}/logs.conf"
+ngx_http_client_conf:           "{{ ngx_http_confd_dir }}/client.conf"
+ngx_http_misc_conf:             "{{ ngx_http_confd_dir }}/misc.conf"
+ngx_http_headers_conf:          "{{ ngx_http_confd_dir }}/headers.conf"

@@ -1,0 +1,6 @@
+upstream varnish {
+  server    127.0.0.1:6081;
+  server    127.0.0.1:6082;
+  least_conn;
+  keepalive 6;
+}

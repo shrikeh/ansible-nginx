@@ -1,0 +1,14 @@
+user                  {{ ngx_user | default("nginx") }} {{ ngx_group | default("nginx") }};
+
+error_log             {{ ngx_error_log | mandatory }};
+pid                   {{ ngx_pid | default("/var/run/nginx.pid") }};
+
+worker_rlimit_nofile  {{ ngx_worker_rlimit_nofile | default (8192) }};
+
+events {
+  worker_connections  {{ ngx_worker_connections | default(4096) }};
+  ## Accept as many connections as possible.
+  multi_accept        {{ ngx_multi_accept | default("on") }};
+}
+
+include {{ ngx_http_conf }};

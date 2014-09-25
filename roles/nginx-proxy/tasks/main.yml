@@ -1,0 +1,22 @@
+---
+- name:         Include setup for Linux
+  include:      setup-linux.yml
+  when:         ansible_os_family != 'Darwin'
+
+- name:         Include setup for OSX
+  include:      setup-osx.yml
+  when:         ansible_os_family == 'Darwin'
+
+- name:         Copy reverse proxy settings to conf.d
+  template:     src=conf.d/reverse_proxy.conf.j2
+                dest="{{ ngx_http_confd_dir }}/reverse_proxy.conf"
+                group="{{ ngx_group }}"
+                owner="{{ ngx_user }}"
+                mode="{{ ngx_config_file_mode | default('0644') }}"
+  sudo:         yes
+
+- name:         Create upstreams files for each upstream
+  template:     src=upstream.j2 dest="{{ ngx_http_upstreams_dir }}/{{ item.key }}.upstream"
+  sudo:         yes
+  with_dict:
+    ngx_proxy_upstreams

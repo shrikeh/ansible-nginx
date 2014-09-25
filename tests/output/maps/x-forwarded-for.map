@@ -1,0 +1,9 @@
+map $http_x_forwarded_for $is_forwarded {
+  default 1;
+  '' 0;
+}
+
+map $is_forwarded $resolved_host {
+  default $http_host;
+  1 $http_x_forwarded_for;
+}

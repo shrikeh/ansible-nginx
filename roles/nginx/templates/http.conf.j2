@@ -1,0 +1,15 @@
+http {
+  include                       {{ ngx_http_maps_dir }}/*.map;
+  include                       {{ ngx_http_upstreams_dir }}/*.upstream;
+  include                       {{ ngx_http_confd_dir }}/*.conf;
+
+  ## Request limits
+  limit_req_zone                $binary_remote_addr
+                                zone=gulag:{{ ngx_http_limit_req_zone | default("1m") }}
+                                rate={{ ngx_http_limit_req_zone_rate | default("60r/m") }};
+
+  ## Hide the Nginx version number.
+  server_tokens                 {{ ngx_http_server_tokens | default("off") }};
+
+  include {{ ngx_http_enabled_sites_dir | default("sites-enabled") }}/*.conf;
+}

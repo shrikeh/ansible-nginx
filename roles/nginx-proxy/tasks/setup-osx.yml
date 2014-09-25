@@ -1,0 +1,10 @@
+---
+- name:         Create the directories we need
+  command:      "mkdir -m {{ ngx_config_dir_mode | default(0755) }} -p {{ ngx_proxy_cache_path }}"
+  remote_user:  "{{ ngx_user }}"
+  sudo:         yes
+
+- name:         Make the folder the right owner
+  command:      "chown -R {{ ngx_user }}:{{ ngx_group }} {{ ngx_proxy_cache_path }}"
+  remote_user:  "{{ ngx_user }}"
+  sudo:         yes

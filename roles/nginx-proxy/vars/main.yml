@@ -1,0 +1,12 @@
+---
+ngx_proxy_cache_zone: shrikeh
+ngx_proxy_cache_path: "/private/var/nginx/cache/proxy"
+ngx_proxy_upstreams:
+  varnish:
+    load_balancing: least_conn
+    keepalive: 6
+    servers:
+      - ip: 127.0.0.1
+        port: 6081
+      - ip: 127.0.0.1
+        port: 6082

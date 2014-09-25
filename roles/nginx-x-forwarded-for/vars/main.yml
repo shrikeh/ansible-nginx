@@ -1,0 +1,2 @@
+---
+ngx_http_x_forwarded_for_map: "{{ ngx_http_maps_dir }}/x-forwarded-for.map"

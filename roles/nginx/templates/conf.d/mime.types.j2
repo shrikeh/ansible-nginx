@@ -1,0 +1,6 @@
+types {
+{% for key, value in ngx_http_mime_types.iteritems() | mandatory %}
+  {{ value.mime | mandatory }} {{ value.extensions }}; # {{ key }}
+{% endfor %}
+}
+default_type                  {{ ngx_default_type | default("application/octet-stream") }};

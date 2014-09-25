@@ -1,0 +1,10 @@
+# Needs to exist and be writable by nginx.  Use tmpfs for best performance.
+pagespeed FileCachePath {{ ngx_pagespeed_file_cache_path | mandatory }};
+
+{% for url, path in ngx_pagespeed_loadfromfile.iteritems() %}
+pagespeed LoadFromFile "{{ url }}" "{{ path }}"
+{% endfor %}
+
+{% for regex, path in ngx_pagespeed_loadfromfilematch.iteritems() %}
+pagespeed LoadFromFileMatch "{{ url }}" "{{ path }}"
+{% endfor %}

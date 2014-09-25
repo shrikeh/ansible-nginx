@@ -1,0 +1,14 @@
+## Timeouts.
+client_body_timeout           {{ ngx_http_client_body_timeout | default(12) }};
+client_header_timeout         {{ ngx_http_client_header_timeout | default(12) }};
+keepalive_timeout             {{ ngx_http_keepalive_timeout | default(10) }} {{ ngx_http_keepalive_header_timeout | default(10) }};
+send_timeout                  {{ ngx_http_send_timeout | default(10) }};
+
+## Reset lingering timed out connections. Deflect DDoS.
+reset_timedout_connection     {{ ngx_http_reset_timedout_connection | default("on") }};
+
+## Body size.
+client_body_buffer_size       {{ ngx_http_client_body_buffer_size | default("10K") }};
+client_header_buffer_size     {{ ngx_http_client_header_buffer_size | default("1k") }};
+client_max_body_size          {{ ngx_http_client_max_body_size | default("8m") }};
+large_client_header_buffers   {{ ngx_large_client_header_buffers_number | default(2) }} {{ ngx_large_client_header_buffers_size | default("1k") }};

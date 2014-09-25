@@ -1,0 +1,6 @@
+---
+ngx_base_dir:             /Users/shrikeh/Cloud/Services/Copy/Workspace/work/inviqa/ansible-nginx/tests/output
+ngx_log_dir:              "{{ ngx_base_dir }}/logs"
+ngx_http_confd_dir:       "{{ ngx_base_dir }}/conf.d"
+ngx_http_maps_dir:        "{{ ngx_base_dir }}/maps"
+ngx_http_upstreams_dir:   "{{ ngx_base_dir }}/upstreams"

@@ -1,0 +1,16 @@
+---
+- name:         Create the proxy cache folder
+  file:         state=directory
+                path="{{ ngx_proxy_cache_path }}"
+                owner="{{ ngx_user | default('nginx') }}"
+                group="{{ ngx_group | default('www-data') }}"
+                mode="{{ ngx_proxy_cache_mode | default(0755) }}"
+  sudo:         yes
+
+- name:         Mount the folder as a tmpfs drive
+  mount:        name="{{ ngx_proxy_cache_path | mandatory }}"
+                src=tmpfs
+                fstype=tmpfs
+                opts="size=2048m"
+                state=mounted
+  sudo:         yes

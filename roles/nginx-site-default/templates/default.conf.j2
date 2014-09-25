@@ -1,0 +1,7 @@
+server {
+  listen *:{{ ngx_http_port | default(80) }} default;
+  server_name _;
+  location / {
+    deny all;
+  }
+}

@@ -1,0 +1,4 @@
+## The server dictates the choice of cipher suites.
+ssl_prefer_server_ciphers     on;
+ssl_ciphers                   {{ ngx_ssl_ciphers | mandatory }};
+ssl_protocols                 {{ngx_ssl_protocols | default("TLSv1 TLSv1.1 TLSv1.2") }}

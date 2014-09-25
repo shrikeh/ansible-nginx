@@ -1,0 +1,10 @@
+---
+- name:  Create the temporary directory for nginx pagespeed to use as cache
+  mount: name="{{ ngx_pagespeed_file_cache_path | mandatory }}"
+         src=tmpfs
+         fstype=tmpfs
+         opts="size=2048m"
+         state=mounted
+
+- name: Add in the pagespeed.conf file
+  

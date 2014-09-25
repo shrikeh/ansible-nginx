@@ -1,0 +1,5 @@
+open_file_cache               max={{ ngx_http_open_file_cache_max | default(1000) }}
+                              inactive={{ ngx_http_open_file_cache_inactive | default("2h") }};
+open_file_cache_errors        {{ ngx_http_open_file_cache_errors | default("on") }};
+open_file_cache_min_uses      {{ ngx_http_open_file_cache_min_uses | default(1) }};
+open_file_cache_valid         {{ ngx_http_open_file_cache_valid | default("1h") }};

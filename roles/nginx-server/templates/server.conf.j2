@@ -1,0 +1,9 @@
+server {
+
+  include {{ngx_server_directive_dir }}/*.conf;
+
+  location / {
+    include {{ ngx_server_location_dir | default('locations') }}/*.location;
+  }
+  include {{ ngx_server_named_location_dir }}/*.location;
+}

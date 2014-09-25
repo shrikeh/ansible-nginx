@@ -1,0 +1,10 @@
+---
+- name: Copy map into position
+  template: src="{{ item.src }}"
+            dest="{{ item.dest }}"
+            group="{{ ngx_group }}"
+            owner="{{ ngx_user }}"
+            mode="{{ ngx_config_file_mode | default('0644') }}"
+  sudo:     yes
+  with_items:
+    - { src: 'x-forwarded-for.map.j2', dest: "{{ ngx_http_x_forwarded_for_map }}" }
